@@ -1,0 +1,4 @@
+#!/bin/sh
+thisdir=$(cd $(dirname $0); pwd)
+viminterp=$thisdir/../viminterp/bin/viminterp
+$viminterp $thisdir/vimsh.vim
