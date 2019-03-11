@@ -1,12 +1,20 @@
 let vimsh = {}
 
 function vimsh.vimsh()
-  let cmd = input("\<C-m>")
+  let cmd = input("\<C-m>VimSh > ")
   let tokens = split(cmd, ' ')
   call add(tokens, '')
 
   if cmd != ''
-    call self[tokens[0]](tokens[1])
+    try
+      call self[tokens[0]](tokens[1])
+    catch
+      if tokens[1] == ''
+        echomsg 'Command not found: ' . tokens[0]
+      else
+        echomsg 'Invalid arguments: ' . tokens[1]
+      endif
+    endtry
   endif
 
   call self.vimsh()
