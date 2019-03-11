@@ -24,7 +24,7 @@ function vimsh.echo(arg)
   echo a:arg
 endfunction
 
-function vimsh.echoval(arg)
+function vimsh.echoeval(arg)
   echo eval(a:arg)
 endfunction
 
